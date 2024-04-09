@@ -28,17 +28,27 @@ public class Main {
 
     //EJERCICIO 4 (2 PUNTOS)
     //Encuentra y arregla el error en este código sabiendo que esEmpirico devuelve true si todos los valores del array
-    //son iguales a true
+    //son iguales a true. Solo puedes modificar una linea.
     public static boolean esEmpirico(boolean[] resets) {
         boolean talCual = true;
-        for(int i = 1; i <= resets.length; i++) {
+        for(int i = 0; i <= resets.length; i++) {
             if(i == resets.length){
-                talCual = resets[i-1] && talCual;
+                talCual = compruebaResetUltimo(resets, i, talCual);
+                resets[i-1]=false;
             }
             else{
-                talCual = resets[i] && talCual;
+                talCual = compruebaReset(talCual, resets[i]);
+                resets[i]=false;
             }
         }
         return talCual;
+    }
+
+    private static boolean compruebaReset(boolean talCual, boolean resets) {
+        return resets && talCual;
+    }
+
+    private static boolean compruebaResetUltimo(boolean[] resets, int i, boolean talCual) {
+        return resets[i - 1] && talCual;
     }
 }
