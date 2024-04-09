@@ -53,12 +53,7 @@ public class Main {
     public static boolean esEmpirico(boolean[] resets) {
         boolean talCual = true;
         for(int i = 1; i <= resets.length; i++) {
-            if(i == resets.length){
                 talCual = resets[i-1] && talCual;
-            }
-            else{
-                talCual = resets[i] && talCual;
-            }
         }
         return talCual;
     }
